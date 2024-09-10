@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqreouyr2ubcu"]
+[gd_scene load_steps=3 format=3 uid="uid://bqreouyr2ubcu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixtq6"]
-size = Vector2(29, 9)
+[ext_resource type="PackedScene" uid="uid://bea25ajs83she" path="res://scenes/platform.tscn" id="1_2gbnb"]
+[ext_resource type="PackedScene" uid="uid://dv3ttrt28aga8" path="res://scenes/player.tscn" id="2_x18eu"]
 
-[node name="MiniPlatform" type="AnimatableBody2D"]
-position = Vector2(0, -5)
+[node name="Node2D" type="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
-scale = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_ixtq6")
-one_way_collision = true
+[node name="Platform" parent="." instance=ExtResource("1_2gbnb")]
+position = Vector2(-1, 4.5)
+
+[node name="Player" parent="." instance=ExtResource("2_x18eu")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
