@@ -10,11 +10,9 @@ config_version=5
 
 [application]
 
-config/name="100 Coins"
-config/description="A platformer where you try to collect 100 coins"
+config/name="Platformer"
 run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://100 Coins Icon.png"
 
 [display]
 
