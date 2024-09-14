@@ -5,26 +5,30 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 var jump_buffer:bool = false
 var jump_availible:bool = false
+var dead:bool = false
 @onready var coyote_timer: Timer = $"Coyote Timer"
 @export var jump_buffer_timer: float = 0.1
-
-
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+func _ready():
+	add_to_group("player&death")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		if !coyote_timer.is_stopped():
-			jump_availible = true
-		else:
-			jump_availible = false
+	if !dead:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			if !coyote_timer.is_stopped():
+				jump_availible = true
+			else:
+				jump_availible = false
 	
-	else:
-		jump_availible = true
-		coyote_timer.stop()
-		if jump_buffer:
-			Jump()
-			jump_buffer=false
+		else:
+			jump_availible = true
+			coyote_timer.stop()
+			if jump_buffer:
+				Jump()
+				jump_buffer=false
+	
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept"):
@@ -37,10 +41,26 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	#sprite flip
+	if direction > 0 && dead==false:
+		animated_sprite.flip_h = false
+	elif direction < 0 && dead==false:
+		animated_sprite.flip_h = true
+	
+	#Animations
+	if !dead:
+		if is_on_floor():
+			if direction == 0:
+				animated_sprite.play("idle")
+			else:
+				animated_sprite.play("run")
+		else:
+			animated_sprite.play("jump")
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 	var was_on_floor = is_on_floor()
 	
 	move_and_slide()
@@ -53,3 +73,8 @@ func Jump() -> void:
 	jump_availible = false
 func On_Jump_Buffer_Timeout() -> void:
 	jump_buffer = false
+func Death() -> void:
+	dead=true
+	animated_sprite.play("die")
+func Alive() -> void:
+	dead = false

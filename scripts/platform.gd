@@ -11,7 +11,6 @@ func _ready() -> void:
 	mini = get_meta("mini")
 	if mini:
 		collision_shape_2d.scale.x = 0.5
-		print("smol")
 		sprite_2d.region_rect = Rect2 (0, 16*style, 16, 9)
 	else:
 		sprite_2d.region_rect = Rect2 (16, 16*style, 32, 9)
