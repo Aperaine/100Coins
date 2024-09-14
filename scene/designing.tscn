@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cd6jy1khuvxbi"]
 
-[ext_resource type="Texture2D" uid="uid://cty3r6ox675cm" path="res://100coins Full.png" id="1_004tj"]
+[ext_resource type="Texture2D" uid="uid://boctd2h36br6u" path="res://100coinsTrans.png" id="1_004tj"]
 [ext_resource type="Texture2D" uid="uid://dqe8s5e6dqfup" path="res://assets/sprites/world_tileset.png" id="1_dc86i"]
 [ext_resource type="PackedScene" uid="uid://ddr3nlebw8g5r" path="res://scene/player.tscn" id="3_a1lfe"]
 
@@ -190,7 +190,7 @@ layer_1/y_sort_origin = 1
 layer_1/tile_data = PackedInt32Array(262139, 0, 1, 262140, 0, 1, 262141, 0, 0, 196611, 0, 1, 196612, 0, 1, 196603, 0, 1, 131067, 0, 0, 131075, 0, 0, 65540, 0, 0, 131076, 0, 1, 196604, 0, 0, 196610, 0, 0, 262142, 589824, 0, 262143, 655360, 0, 196608, 655360, 0, 196609, 720896, 0)
 
 [node name="100CoinsFull" type="Sprite2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, -40)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("1_004tj")
 

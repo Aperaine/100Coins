@@ -15,7 +15,9 @@ config/description="A platformer where you try to collect 100 coins"
 config/version="1.0"
 run/main_scene="res://scene/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/bg_color=Color(0.0980392, 0.309804, 0.74902, 1)
+boot_splash/bg_color=Color(0.0745098, 0.596078, 0.862745, 1)
+boot_splash/image="res://100coinsTrans.png"
+boot_splash/fullsize=false
 config/icon="res://100 Coins Icon.png"
 
 [display]
