@@ -211,7 +211,7 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vbyre"]
 
-[node name="Node2D" type="Node2D" groups=["player&death"]]
+[node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_tymfc")
