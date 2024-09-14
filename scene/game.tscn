@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqreouyr2ubcu"]
+[gd_scene load_steps=15 format=3 uid="uid://bqreouyr2ubcu"]
 
 [ext_resource type="PackedScene" uid="uid://dk7bgs5n43ioh" path="res://scene/platform.tscn" id="1_2gbnb"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ems0u"]
 [ext_resource type="Texture2D" uid="uid://dqe8s5e6dqfup" path="res://assets/sprites/world_tileset.png" id="1_h7rgm"]
 [ext_resource type="PackedScene" uid="uid://ddr3nlebw8g5r" path="res://scene/player.tscn" id="2_x18eu"]
 [ext_resource type="PackedScene" uid="uid://bnqajhdf0b8vo" path="res://scene/coin.tscn" id="4_tar30"]
 [ext_resource type="PackedScene" uid="uid://s1w2m33l2fgd" path="res://scene/slime.tscn" id="5_ihifs"]
 [ext_resource type="PackedScene" uid="uid://bhnih02mm3prs" path="res://scene/killzone.tscn" id="5_sn1on"]
+[ext_resource type="AudioStream" uid="uid://g235ea886abv" path="res://assets/music/time_for_adventure.mp3" id="7_wu5gf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y73uj"]
 texture = ExtResource("1_h7rgm")
@@ -211,7 +213,11 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vbyre"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
+
+[node name="Game Manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ems0u")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_tymfc")
@@ -482,3 +488,8 @@ shape = SubResource("WorldBoundaryShape2D_vbyre")
 
 [node name="Slime" parent="." instance=ExtResource("5_ihifs")]
 position = Vector2(1096, -208)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_wu5gf")
+autoplay = true
+bus = &"Music"

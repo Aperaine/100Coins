@@ -7,27 +7,28 @@ var jump_buffer:bool = false
 var jump_availible:bool = false
 var dead:bool = false
 @onready var coyote_timer: Timer = $"Coyote Timer"
-@export var jump_buffer_timer: float = 0.1
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var jump_buffer_timer: float = 0.1
 func _ready():
 	add_to_group("player&death")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if !dead:
-		if not is_on_floor():
-			velocity += get_gravity() * delta
-			if !coyote_timer.is_stopped():
-				jump_availible = true
-			else:
-				jump_availible = false
 	
-		else:
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		if !coyote_timer.is_stopped() && !dead:
 			jump_availible = true
-			coyote_timer.stop()
-			if jump_buffer:
-				Jump()
-				jump_buffer=false
+		else:
+			jump_availible = false
+	
+	elif !dead:
+		jump_availible = true
+		coyote_timer.stop()
+		if jump_buffer:
+			Jump()
+			jump_buffer=false
 	
 
 	# Handle jump.
@@ -68,6 +69,7 @@ func _physics_process(delta: float) -> void:
 	if was_on_floor && !is_on_floor():
 		coyote_timer.start()
 func Jump() -> void:
+	audio_stream_player_2d.play()
 	velocity.y = JUMP_VELOCITY
 	coyote_timer.stop()
 	jump_availible = false
