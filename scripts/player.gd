@@ -9,6 +9,7 @@ var dead:bool = false
 @onready var coyote_timer: Timer = $"Coyote Timer"
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var deathsound: AudioStreamPlayer2D = $AudioStreamPlayer2D2
 @export var jump_buffer_timer: float = 0.1
 func _ready():
 	add_to_group("player&death")
@@ -78,5 +79,6 @@ func On_Jump_Buffer_Timeout() -> void:
 func Death() -> void:
 	dead=true
 	animated_sprite.play("die")
+	deathsound.play()
 func Alive() -> void:
 	dead = false
