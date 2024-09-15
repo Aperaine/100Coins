@@ -18,7 +18,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.0745098, 0.596078, 0.862745, 1)
 boot_splash/image="res://100coinsTrans.png"
 boot_splash/fullsize=false
-config/icon="res://100 Coins Icon.png"
+config/icon="res://100 Coins Icon Upscaled.png"
 
 [display]
 
