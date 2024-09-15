@@ -237,6 +237,11 @@ limit_top = -288
 limit_bottom = 128
 position_smoothing_enabled = true
 
+[node name="Music" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("7_wu5gf")
+autoplay = true
+bus = &"Music"
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("1_2gbnb")]
@@ -488,8 +493,3 @@ shape = SubResource("WorldBoundaryShape2D_vbyre")
 
 [node name="Slime" parent="." instance=ExtResource("5_ihifs")]
 position = Vector2(1096, -208)
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_wu5gf")
-autoplay = true
-bus = &"Music"
