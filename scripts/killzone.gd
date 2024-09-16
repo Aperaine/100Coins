@@ -9,9 +9,7 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	print("ded")
 	timer.start()
-	character = body
 	get_tree().call_group("player&death", "Death")
 
 func _on_timer_timeout() -> void:
-	character.position=Vector2(0,0)
 	get_tree().call_group("player&death", "Alive")

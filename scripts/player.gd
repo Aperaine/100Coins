@@ -82,3 +82,4 @@ func Death() -> void:
 	deathsound.play()
 func Alive() -> void:
 	dead = false
+	position=Vector2(0,0)
