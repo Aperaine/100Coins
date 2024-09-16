@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b84uu7oo6lc1i"]
+
+[ext_resource type="Script" path="res://scripts/cake.gd" id="1_3cqyk"]
+[ext_resource type="Texture2D" uid="uid://sxh7mga2ddd5" path="res://assets/sprites/Black Forest Cake.png" id="2_2d5a7"]
+[ext_resource type="Texture2D" uid="uid://bax3sxe55jn8s" path="res://assets/sprites/BlackForest_Cake.png" id="3_163q6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by12d"]
+size = Vector2(26, 30)
+
+[node name="Cake" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_3cqyk")
+
+[node name="LockedSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2d5a7")
+
+[node name="UnlockedSprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_163q6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_by12d")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
