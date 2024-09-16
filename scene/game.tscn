@@ -207,6 +207,21 @@ _data = {
 "move": SubResource("Animation_naoih")
 }
 
+[sub_resource type="Animation" id="Animation_r4crr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-624, -28.5)]
+}
+
 [sub_resource type="Animation" id="Animation_as3ok"]
 resource_name = "move"
 length = 1.5
@@ -224,25 +239,25 @@ tracks/0/keys = {
 "values": [Vector2(-672, -28.5), Vector2(-624, -28.5)]
 }
 
-[sub_resource type="Animation" id="Animation_r4crr"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_py6ml"]
+_data = {
+"RESET": SubResource("Animation_r4crr"),
+"move": SubResource("Animation_as3ok")
+}
+
+[sub_resource type="Animation" id="Animation_iyjt5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../Platform24:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-624, -28.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_py6ml"]
-_data = {
-"RESET": SubResource("Animation_r4crr"),
-"move": SubResource("Animation_as3ok")
+"values": [Vector2(-624, -123.5)]
 }
 
 [sub_resource type="Animation" id="Animation_lk0cn"]
@@ -262,25 +277,25 @@ tracks/0/keys = {
 "values": [Vector2(-672, -123.5), Vector2(-624, -123.5)]
 }
 
-[sub_resource type="Animation" id="Animation_iyjt5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtcpa"]
+_data = {
+"RESET": SubResource("Animation_iyjt5"),
+"move": SubResource("Animation_lk0cn")
+}
+
+[sub_resource type="Animation" id="Animation_5a4ur"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform24:position")
+tracks/0/path = NodePath("../Platform25:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-624, -123.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtcpa"]
-_data = {
-"RESET": SubResource("Animation_iyjt5"),
-"move": SubResource("Animation_lk0cn")
+"values": [Vector2(-560, -75.5)]
 }
 
 [sub_resource type="Animation" id="Animation_6emd0"]
@@ -300,25 +315,25 @@ tracks/0/keys = {
 "values": [Vector2(-608, -75.5), Vector2(-560, -75.5)]
 }
 
-[sub_resource type="Animation" id="Animation_5a4ur"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5cxfd"]
+_data = {
+"RESET": SubResource("Animation_5a4ur"),
+"move": SubResource("Animation_6emd0")
+}
+
+[sub_resource type="Animation" id="Animation_m4dac"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform25:position")
+tracks/0/path = NodePath("../Platform26:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-560, -75.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5cxfd"]
-_data = {
-"RESET": SubResource("Animation_5a4ur"),
-"move": SubResource("Animation_6emd0")
+"values": [Vector2(-560, -171.5)]
 }
 
 [sub_resource type="Animation" id="Animation_eqy0s"]
@@ -338,25 +353,25 @@ tracks/0/keys = {
 "values": [Vector2(-608, -171.5), Vector2(-560, -171.5)]
 }
 
-[sub_resource type="Animation" id="Animation_m4dac"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7roy"]
+_data = {
+"RESET": SubResource("Animation_m4dac"),
+"move": SubResource("Animation_eqy0s")
+}
+
+[sub_resource type="Animation" id="Animation_xiy3c"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform26:position")
+tracks/0/path = NodePath("../Platform28:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-560, -171.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7roy"]
-_data = {
-"RESET": SubResource("Animation_m4dac"),
-"move": SubResource("Animation_eqy0s")
+"values": [Vector2(-1072, -187.5)]
 }
 
 [sub_resource type="Animation" id="Animation_1f701"]
@@ -376,25 +391,25 @@ tracks/0/keys = {
 "values": [Vector2(-752, -187.5), Vector2(-1072, -187.5)]
 }
 
-[sub_resource type="Animation" id="Animation_xiy3c"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsmbf"]
+_data = {
+"RESET": SubResource("Animation_xiy3c"),
+"move": SubResource("Animation_1f701")
+}
+
+[sub_resource type="Animation" id="Animation_anmgx"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform28:position")
+tracks/0/path = NodePath("../Platform29:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1072, -187.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsmbf"]
-_data = {
-"RESET": SubResource("Animation_xiy3c"),
-"move": SubResource("Animation_1f701")
+"values": [Vector2(-752, -139.5)]
 }
 
 [sub_resource type="Animation" id="Animation_n6dtm"]
@@ -414,25 +429,25 @@ tracks/0/keys = {
 "values": [Vector2(-1072, -139.5), Vector2(-752, -139.5)]
 }
 
-[sub_resource type="Animation" id="Animation_anmgx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txis2"]
+_data = {
+"RESET": SubResource("Animation_anmgx"),
+"move": SubResource("Animation_n6dtm")
+}
+
+[sub_resource type="Animation" id="Animation_oep8k"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform29:position")
+tracks/0/path = NodePath("../Platform30:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-752, -139.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_txis2"]
-_data = {
-"RESET": SubResource("Animation_anmgx"),
-"move": SubResource("Animation_n6dtm")
+"values": [Vector2(-1072, -91.5)]
 }
 
 [sub_resource type="Animation" id="Animation_6m2uj"]
@@ -452,25 +467,25 @@ tracks/0/keys = {
 "values": [Vector2(-752, -91.5), Vector2(-1072, -91.5)]
 }
 
-[sub_resource type="Animation" id="Animation_oep8k"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4cg15"]
+_data = {
+"RESET": SubResource("Animation_oep8k"),
+"move": SubResource("Animation_6m2uj")
+}
+
+[sub_resource type="Animation" id="Animation_1fgnb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform30:position")
+tracks/0/path = NodePath("../Platform31:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1072, -91.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4cg15"]
-_data = {
-"RESET": SubResource("Animation_oep8k"),
-"move": SubResource("Animation_6m2uj")
+"values": [Vector2(-752, -43.5)]
 }
 
 [sub_resource type="Animation" id="Animation_ei68d"]
@@ -490,25 +505,25 @@ tracks/0/keys = {
 "values": [Vector2(-1072, -43.5), Vector2(-752, -43.5)]
 }
 
-[sub_resource type="Animation" id="Animation_1fgnb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vmqm"]
+_data = {
+"RESET": SubResource("Animation_1fgnb"),
+"move": SubResource("Animation_ei68d")
+}
+
+[sub_resource type="Animation" id="Animation_i3wv2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform31:position")
+tracks/0/path = NodePath("../Platform32:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-752, -43.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vmqm"]
-_data = {
-"RESET": SubResource("Animation_1fgnb"),
-"move": SubResource("Animation_ei68d")
+"values": [Vector2(-1072, 20.5)]
 }
 
 [sub_resource type="Animation" id="Animation_xccbk"]
@@ -528,25 +543,25 @@ tracks/0/keys = {
 "values": [Vector2(-752, 20.5), Vector2(-1072, 20.5)]
 }
 
-[sub_resource type="Animation" id="Animation_i3wv2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jh8kp"]
+_data = {
+"RESET": SubResource("Animation_i3wv2"),
+"move": SubResource("Animation_xccbk")
+}
+
+[sub_resource type="Animation" id="Animation_bufw3"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform32:position")
+tracks/0/path = NodePath("../Platform33:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1072, 20.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jh8kp"]
-_data = {
-"RESET": SubResource("Animation_i3wv2"),
-"move": SubResource("Animation_xccbk")
+"values": [Vector2(-752, 68.5)]
 }
 
 [sub_resource type="Animation" id="Animation_vj18k"]
@@ -564,21 +579,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-1072, 68.5), Vector2(-752, 68.5)]
-}
-
-[sub_resource type="Animation" id="Animation_bufw3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform33:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-752, 68.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6140l"]
@@ -944,10 +944,10 @@ position = Vector2(24, 40)
 position = Vector2(56, -184)
 
 [node name="Coin10" parent="Coins" instance=ExtResource("4_tar30")]
-position = Vector2(72, -184)
+position = Vector2(56, -216)
 
 [node name="Coin11" parent="Coins" instance=ExtResource("4_tar30")]
-position = Vector2(40, -184)
+position = Vector2(56, -200)
 
 [node name="Hazards" type="Node" parent="."]
 

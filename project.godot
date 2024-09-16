@@ -24,7 +24,7 @@ config/icon="res://100 Coins Icon Upscaled.png"
 
 window/size/mode=2
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="expand"
 
 [global_group]
 
