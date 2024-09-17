@@ -6,7 +6,7 @@ var character
 func _ready():
 	add_to_group("player&death")
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	print("ded")
 	timer.start()
 	get_tree().call_group("player&death", "Death")

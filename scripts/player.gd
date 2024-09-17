@@ -6,10 +6,12 @@ const JUMP_VELOCITY = -300.0
 var jump_buffer:bool = false
 var jump_availible:bool = false
 var dead:bool = false
+var justStarted:bool = true
 @onready var coyote_timer: Timer = $"Coyote Timer"
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var deathsound: AudioStreamPlayer2D = $AudioStreamPlayer2D2
+@onready var game_manager: Node = %"Game Manager"
 @export var jump_buffer_timer: float = 0.1
 func _ready():
 	add_to_group("player&death")
@@ -44,10 +46,14 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	#sprite flip
-	if direction > 0 && dead==false:
+	if direction > 0 && !dead:
 		animated_sprite.flip_h = false
-	elif direction < 0 && dead==false:
+	elif direction < 0 && !dead:
 		animated_sprite.flip_h = true
+	
+	if !(direction == 0)&&justStarted:
+		justStarted = false
+		game_manager.SetPause(false)
 	
 	#Animations
 	if !dead:
@@ -80,6 +86,7 @@ func Death() -> void:
 	dead=true
 	animated_sprite.play("die")
 	deathsound.play()
+	game_manager.AddDeath()
 func Alive() -> void:
 	dead = false
 	position=Vector2(0,0)
