@@ -7,6 +7,7 @@ var jump_buffer:bool = false
 var jump_availible:bool = false
 var dead:bool = false
 var justStarted:bool = true
+var supe = 1
 @onready var coyote_timer: Timer = $"Coyote Timer"
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -65,9 +66,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite.play("jump")
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = direction * SPEED * supe
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED * supe)
 	
 	var was_on_floor = is_on_floor()
 	
@@ -77,7 +78,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 func Jump() -> void:
 	audio_stream_player_2d.play()
-	velocity.y = JUMP_VELOCITY
+	velocity.y = JUMP_VELOCITY * supe
 	coyote_timer.stop()
 	jump_availible = false
 func On_Jump_Buffer_Timeout() -> void:
@@ -90,3 +91,5 @@ func Death() -> void:
 func Alive() -> void:
 	dead = false
 	position=Vector2(0,0)
+func GGs() -> void:
+	supe = 0
