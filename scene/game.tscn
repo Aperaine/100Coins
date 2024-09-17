@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bqreouyr2ubcu"]
+[gd_scene load_steps=65 format=3 uid="uid://bqreouyr2ubcu"]
 
 [ext_resource type="PackedScene" uid="uid://dk7bgs5n43ioh" path="res://scene/platform.tscn" id="1_2gbnb"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ems0u"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b84uu7oo6lc1i" path="res://scene/cake.tscn" id="9_ojohs"]
 [ext_resource type="FontFile" uid="uid://dy8phv1ywsb6u" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="10_6uhoe"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="11_ji1i0"]
+[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="12_53m41"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y73uj"]
 texture = ExtResource("1_h7rgm")
@@ -724,6 +725,10 @@ default_font_size = 64
 
 [sub_resource type="Theme" id="Theme_faovu"]
 
+[sub_resource type="Theme" id="Theme_1o1rj"]
+default_font = ExtResource("10_6uhoe")
+default_font_size = 24
+
 [node name="Game" type="Node2D"]
 
 [node name="Game Manager" type="Node" parent="."]
@@ -1389,7 +1394,6 @@ text = "
 script = ExtResource("11_ji1i0")
 
 [node name="Win Display" type="Panel" parent="UI"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1446,9 +1450,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -380.0
-offset_top = 24.0
+offset_top = -8.0
 offset_right = 396.0
-offset_bottom = 56.0
+offset_bottom = 24.0
 grow_horizontal = 2
 theme = SubResource("Theme_e2klm")
 bbcode_enabled = true
@@ -1462,9 +1466,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -388.0
-offset_top = -224.0
+offset_top = -256.0
 offset_right = 380.0
-offset_bottom = -144.0
+offset_bottom = -176.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_aqng8")
@@ -1485,5 +1489,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_faovu")
 theme_override_fonts/font = ExtResource("10_6uhoe")
-theme_override_font_sizes/font_size = 48
-text = "Leaderboard"
+theme_override_font_sizes/font_size = 24
+text = "Open Leaderboard"
+
+[node name="LeaderboardUI" parent="UI" instance=ExtResource("12_53m41")]
+visible = false
+theme = SubResource("Theme_1o1rj")
+leaderboard_id = "100-coins-time-kK2Y"
+
+[node name="Button" type="Button" parent="UI/LeaderboardUI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Close"
