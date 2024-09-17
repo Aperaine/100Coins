@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bqreouyr2ubcu"]
+[gd_scene load_steps=59 format=3 uid="uid://bqreouyr2ubcu"]
 
 [ext_resource type="PackedScene" uid="uid://dk7bgs5n43ioh" path="res://scene/platform.tscn" id="1_2gbnb"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ems0u"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bhnih02mm3prs" path="res://scene/killzone.tscn" id="5_sn1on"]
 [ext_resource type="AudioStream" uid="uid://g235ea886abv" path="res://assets/music/time_for_adventure.mp3" id="7_wu5gf"]
 [ext_resource type="PackedScene" uid="uid://b84uu7oo6lc1i" path="res://scene/cake.tscn" id="9_ojohs"]
+[ext_resource type="FontFile" uid="uid://dy8phv1ywsb6u" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="10_6uhoe"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="11_ji1i0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y73uj"]
 texture = ExtResource("1_h7rgm")
@@ -706,6 +708,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55cgv"]
 size = Vector2(352, 40)
 
+[sub_resource type="Theme" id="Theme_8ffgx"]
+default_font = ExtResource("10_6uhoe")
+default_font_size = 40
+
 [node name="Game" type="Node2D"]
 
 [node name="Game Manager" type="Node" parent="."]
@@ -1350,3 +1356,22 @@ shape = SubResource("RectangleShape2D_55cgv")
 [node name="CakeObject" parent="." instance=ExtResource("9_ojohs")]
 unique_name_in_owner = true
 position = Vector2(720, 64)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreDisplay" type="RichTextLabel" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -248.0
+offset_top = -24.0
+offset_right = -8.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme = SubResource("Theme_8ffgx")
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "
+[right]20[img=40x40]res://100 Coins Icon.png[/img]"
+script = ExtResource("11_ji1i0")
