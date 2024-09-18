@@ -32,6 +32,8 @@ func _process(delta: float) -> void:
 		time += delta * supe
 	if Input.is_action_just_released("leaderboard_open"):
 		leaderboard_ui.visible = !leaderboard_ui.visible
+	Global.time = (snapped(time,0.01))
+	print (Global.time)
 
 func Win():
 	supe = 0

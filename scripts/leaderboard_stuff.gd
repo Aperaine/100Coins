@@ -12,7 +12,7 @@ func _on_line_edit_text_submitted(_new_text: String) -> void:
 	Global.playerName = playerName
 	print(playerName)
 	print(time)
-	await Leaderboards.post_guest_score("100-coins-time-kK2Y", time, playerName)
+	await Leaderboards.post_guest_score("100-coins-time-kK2Y", Global.time, playerName)
 	Global.submitted = true
 
 
