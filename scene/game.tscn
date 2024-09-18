@@ -763,7 +763,9 @@ unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 zoom = Vector2(3, 3)
+limit_left = -1280
 limit_top = -288
+limit_right = 1792
 limit_bottom = 128
 position_smoothing_enabled = true
 
@@ -1201,10 +1203,10 @@ position = Vector2(-1080, -120)
 position = Vector2(-744, -72)
 
 [node name="Coin57" parent="Coins" instance=ExtResource("4_tar30")]
-position = Vector2(-1080, -8)
+position = Vector2(-1080, -24)
 
 [node name="Coin58" parent="Coins" instance=ExtResource("4_tar30")]
-position = Vector2(-744, 40)
+position = Vector2(-744, 24)
 
 [node name="Coin59" parent="Coins" instance=ExtResource("4_tar30")]
 position = Vector2(-1128, 40)
@@ -1445,6 +1447,7 @@ theme = SubResource("Theme_e2klm")
 bbcode_enabled = true
 text = "[font_size=48][center] Deaths: 0
 Time: 0"
+fit_content = true
 
 [node name="Leaderboard stuff" type="Panel" parent="UI/Win Display"]
 layout_mode = 1
@@ -1473,7 +1476,7 @@ offset_bottom = 24.0
 grow_horizontal = 2
 theme = SubResource("Theme_e2klm")
 bbcode_enabled = true
-text = "[font_size=32]Save your time!"
+text = "[font_size=24]Submit your time! [enter] to submit"
 
 [node name="LineEdit" type="LineEdit" parent="UI/Win Display/Leaderboard stuff"]
 layout_mode = 1
