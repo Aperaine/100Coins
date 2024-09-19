@@ -869,7 +869,7 @@ position = Vector2(248, -139.5)
 metadata/mini = true
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("1_2gbnb")]
-position = Vector2(376, 52.5)
+position = Vector2(368, 52.5)
 
 [node name="Platform22" parent="Platforms" instance=ExtResource("1_2gbnb")]
 position = Vector2(-336, 20.5)
@@ -1407,6 +1407,18 @@ theme_override_constants/outline_size = 4
 bbcode_enabled = true
 text = "
 [right]0[img=40x40]res://100 Coins Icon.png[/img]"
+script = ExtResource("11_ji1i0")
+
+[node name="TimeDisplay" type="RichTextLabel" parent="UI"]
+unique_name_in_owner = true
+offset_top = -24.0
+offset_right = 240.0
+offset_bottom = 64.0
+theme = SubResource("Theme_8ffgx")
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "
+0"
 script = ExtResource("11_ji1i0")
 
 [node name="Win Display" type="Panel" parent="UI"]

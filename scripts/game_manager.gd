@@ -6,6 +6,7 @@ extends Node
 @onready var final_data: RichTextLabel = %"Final Data"
 @onready var player_character: CharacterBody2D = %PlayerCharacter
 @onready var cake_display: RichTextLabel = $ScoreDisplay
+@onready var time_display: RichTextLabel = %TimeDisplay
 
 var score = 0
 var deaths = 0
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("leaderboard_open"):
 		leaderboard_ui.visible = !leaderboard_ui.visible
 	Global.time = (snapped(time,0.01))
+	time_display.parse_bbcode("\n%s" % [snapped(time,0.01)])
 	print (Global.time)
 
 func Win():

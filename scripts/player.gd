@@ -14,6 +14,7 @@ var supe = 1
 @onready var deathsound: AudioStreamPlayer2D = $AudioStreamPlayer2D2
 @onready var game_manager: Node = %"Game Manager"
 @export var jump_buffer_timer: float = 0.1
+
 func _ready():
 	add_to_group("player&death")
 
@@ -88,6 +89,7 @@ func Death() -> void:
 	animated_sprite.play("die")
 	deathsound.play()
 	game_manager.AddDeath()
+	
 func Alive() -> void:
 	dead = false
 	position=Vector2(0,0)
