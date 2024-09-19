@@ -35,7 +35,6 @@ func _process(delta: float) -> void:
 		leaderboard_ui.visible = !leaderboard_ui.visible
 	Global.time = (snapped(time,0.01))
 	time_display.parse_bbcode("\n%s" % [snapped(time,0.01)])
-	print (Global.time)
 
 func Win():
 	supe = 0

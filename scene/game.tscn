@@ -1419,11 +1419,12 @@ theme_override_constants/outline_size = 4
 bbcode_enabled = true
 text = "
 0"
+fit_content = true
+scroll_active = false
 script = ExtResource("11_ji1i0")
 
 [node name="Win Display" type="Panel" parent="UI"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1488,7 +1489,7 @@ offset_bottom = 24.0
 grow_horizontal = 2
 theme = SubResource("Theme_e2klm")
 bbcode_enabled = true
-text = "[font_size=24]Submit your time! [enter] to submit"
+text = "[font_size=24]Submit your time!"
 
 [node name="LineEdit" type="LineEdit" parent="UI/Win Display/Leaderboard stuff"]
 layout_mode = 1
@@ -1497,13 +1498,32 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -388.0
 offset_top = 32.0
-offset_right = 380.0
+offset_right = 236.0
 offset_bottom = 112.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("10_6uhoe")
 theme_override_font_sizes/font_size = 64
 placeholder_text = "Name"
 max_length = 15
+
+[node name="Submit" type="Button" parent="UI/Win Display/Leaderboard stuff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 234.0
+offset_top = -112.0
+offset_right = 380.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_faovu")
+theme_override_fonts/font = ExtResource("10_6uhoe")
+theme_override_font_sizes/font_size = 24
+text = "Submit
+"
 
 [node name="Open Leaderboard2" type="Button" parent="UI/Win Display/Leaderboard stuff"]
 layout_mode = 1
@@ -1554,6 +1574,7 @@ offset_bottom = 8.0
 text = "Close"
 
 [connection signal="text_submitted" from="UI/Win Display/Leaderboard stuff/LineEdit" to="UI/Win Display/Leaderboard stuff" method="_on_line_edit_text_submitted"]
+[connection signal="button_up" from="UI/Win Display/Leaderboard stuff/Submit" to="UI/Win Display/Leaderboard stuff" method="_on_submit_button_up"]
 [connection signal="button_up" from="UI/Win Display/Leaderboard stuff/Open Leaderboard2" to="Game Manager" method="_on_open_leaderboard_2_button_up"]
 [connection signal="button_up" from="UI/Win Display/Leaderboard stuff/Play Again" to="UI/Win Display/Leaderboard stuff" method="_on_play_again_button_up"]
 [connection signal="button_up" from="UI/LeaderboardUI/Button" to="Game Manager" method="_on_button_button_up"]
