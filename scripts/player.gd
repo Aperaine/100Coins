@@ -9,6 +9,8 @@ var dead:bool = false
 var justStarted:bool = true
 var supe = 1
 var hit_animation:bool = false
+var health = 2
+
 @onready var coyote_timer: Timer = $"Coyote Timer"
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -93,23 +95,30 @@ func Death() -> void:
 	game_manager.AddDeath()
 	
 func Alive() -> void:
-	dead = false
-	position=Vector2(0,0)
-	hurt_tint.modulate.a = 0
+	if dead:
+		dead = false
+		position=Vector2(0,0)
+		hurt_tint.modulate.a = 0
+		health = 2
+	
 func GGs() -> void:
 	supe = 0
 
 func Hurt() -> void:
-	deathsound.play()
-	hit_animation = true
-	animated_sprite.play("hit")
-	hurt_tint.modulate.a = 0.2
+	hurt_tint.modulate.a += 0.2
+	if !dead:
+		health -= 1
+		if health == 0:
+			Death()
+		else:
+			deathsound.play()
+			hit_animation = true
+			animated_sprite.play("hit")
+			
 
 func Untint() -> void:
 	while hurt_tint.modulate.a > 0:
 		hurt_tint.modulate.a -= 1
-	
-
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if hit_animation:
