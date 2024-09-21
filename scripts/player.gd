@@ -8,11 +8,13 @@ var jump_availible:bool = false
 var dead:bool = false
 var justStarted:bool = true
 var supe = 1
+var hit_animation:bool = false
 @onready var coyote_timer: Timer = $"Coyote Timer"
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var deathsound: AudioStreamPlayer2D = $AudioStreamPlayer2D2
 @onready var game_manager: Node = %"Game Manager"
+@onready var hurt_tint: Panel = %HurtTint
 @export var jump_buffer_timer: float = 0.1
 
 func _ready():
@@ -59,12 +61,12 @@ func _physics_process(delta: float) -> void:
 	
 	#Animations
 	if !dead:
-		if is_on_floor():
+		if is_on_floor() && !hit_animation:
 			if direction == 0:
 				animated_sprite.play("idle")
 			else:
 				animated_sprite.play("run")
-		else:
+		elif !hit_animation:
 			animated_sprite.play("jump")
 		if direction:
 			velocity.x = direction * SPEED * supe
@@ -93,5 +95,22 @@ func Death() -> void:
 func Alive() -> void:
 	dead = false
 	position=Vector2(0,0)
+	hurt_tint.modulate.a = 0
 func GGs() -> void:
 	supe = 0
+
+func Hurt() -> void:
+	deathsound.play()
+	hit_animation = true
+	animated_sprite.play("hit")
+	hurt_tint.modulate.a = 0.2
+
+func Untint() -> void:
+	while hurt_tint.modulate.a > 0:
+		hurt_tint.modulate.a -= 1
+	
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if hit_animation:
+		hit_animation = false

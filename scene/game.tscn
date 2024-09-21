@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bqreouyr2ubcu"]
+[gd_scene load_steps=66 format=3 uid="uid://bqreouyr2ubcu"]
 
 [ext_resource type="PackedScene" uid="uid://dk7bgs5n43ioh" path="res://scene/platform.tscn" id="1_2gbnb"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ems0u"]
@@ -726,6 +726,9 @@ default_font_size = 104
 default_font = ExtResource("10_6uhoe")
 default_font_size = 24
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dflvo"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="Game" type="Node2D"]
 
 [node name="Game Manager" type="Node" parent="."]
@@ -1347,6 +1350,7 @@ position = Vector2(840, -80)
 
 [node name="Void" parent="Hazards" instance=ExtResource("5_sn1on")]
 position = Vector2(0, 128)
+oneshot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Void"]
 position = Vector2(0, 16)
@@ -1381,6 +1385,7 @@ position = Vector2(1352, 16)
 
 [node name="Poison" parent="Hazards" instance=ExtResource("5_sn1on")]
 position = Vector2(-912, 88)
+oneshot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Poison"]
 position = Vector2(0, 20)
@@ -1573,6 +1578,16 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Close"
+
+[node name="HurtTint" type="Panel" parent="UI"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dflvo")
 
 [connection signal="text_submitted" from="UI/Win Display/Leaderboard stuff/LineEdit" to="UI/Win Display/Leaderboard stuff" method="_on_line_edit_text_submitted"]
 [connection signal="button_up" from="UI/Win Display/Leaderboard stuff/Submit" to="UI/Win Display/Leaderboard stuff" method="_on_submit_button_up"]
