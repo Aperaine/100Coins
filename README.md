@@ -1,6 +1,6 @@
 A basic platformer where you collect 100 coins
 
-Download on [itch](aperaine.itch.io/100-coins)
+Download on aperaine.itch.io/100-coins
 
 You roam a world of multiple biomes and aim to collect 100 coins. In your path you will find obstacles such as poison, moving platforms and slimes. 
 
