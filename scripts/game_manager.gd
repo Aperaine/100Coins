@@ -33,6 +33,8 @@ func _process(delta: float) -> void:
 		time += delta * supe
 	if Input.is_action_just_released("leaderboard_open"):
 		leaderboard_ui.visible = !leaderboard_ui.visible
+	if Input.is_action_just_released("reset"):
+		get_tree().reload_current_scene()
 	Global.time = (snapped(time,0.01))
 	time_display.parse_bbcode("\n%s" % [snapped(time,0.01)])
 
